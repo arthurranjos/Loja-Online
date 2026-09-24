@@ -1,0 +1,18 @@
+flowchart TB
+  Visitor[Visitante / Cliente]
+  Admin[Administrador]
+  subgraph App[Aplicação web responsiva — arquitetura lógica em camadas]
+    UI[Apresentação: catálogo, conta, carrinho, painel]
+    UseCases[Aplicação: casos de uso e autorização]
+    Domain[Domínio: catálogo, pedido, promoção, avaliação]
+    Adapters[Persistência e integrações]
+    UI --> UseCases --> Domain --> Adapters
+  end
+  DB[(Banco de dados)]
+  Pay[Pagamento simulado]
+  Mail[Canal de confirmação/recuperação a decidir]
+  Visitor --> UI
+  Admin --> UI
+  Adapters --> DB
+  Adapters --> Pay
+  Adapters -. "PD-008" .-> Mail

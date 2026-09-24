@@ -1,0 +1,24 @@
+stateDiagram-v2
+  [*] --> Carrinho
+  Carrinho --> ValidandoEstoque: checkout autenticado
+  ValidandoEstoque --> SemEstoque: indisponível
+  ValidandoEstoque --> Retido: retenção exclusiva obtida
+  Retido --> PagamentoAprovado: escolha aprovar e retenção válida
+  Retido --> PagamentoRecusado: escolha recusar
+  Retido --> Expirado: prazo pendente atingido
+  PagamentoRecusado --> EstoqueLiberado
+  Expirado --> EstoqueLiberado
+  PagamentoAprovado --> PedidoRealizado
+  PedidoRealizado --> EmPreparacao
+  EmPreparacao --> Enviado
+  Enviado --> Entregue
+  PedidoRealizado --> PedidoCancelado: decisão/regra aplicável
+  EmPreparacao --> PedidoCancelado: decisão/regra aplicável
+  note right of Retido
+    Duração da retenção pendente.
+    Recusa/expiração libera estoque.
+  end note
+  note right of PedidoCancelado
+    Cancelamento, troca e devolução
+    dependem de política pendente.
+  end note
