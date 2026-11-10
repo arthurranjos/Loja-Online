@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 960" role="img" aria-labelledby="title desc">
+  <title id="title">Imagem ilustrativa de produto</title>
+  <desc id="desc">Silhueta abstrata de uma peça de roupa sobre fundo em tons naturais.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f2e9dd" />
+      <stop offset="1" stop-color="#dfcbb9" />
+    </linearGradient>
+    <linearGradient id="fabric" x1="0" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#a66b4d" />
+      <stop offset="1" stop-color="#724734" />
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-20%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="22" stdDeviation="22" flood-color="#604438" flood-opacity=".18" />
+    </filter>
+  </defs>
+  <rect width="800" height="960" fill="url(#background)" />
+  <circle cx="400" cy="430" r="270" fill="#fff9f2" opacity=".34" />
+  <path d="M314 236c13-39 46-65 86-65s73 26 86 65l95 48 72 227-102 34-37-99v298H286V446l-37 99-102-34 72-227 95-48Z" fill="url(#fabric)" filter="url(#shadow)" />
+  <path d="M346 190c8 42 24 66 54 66s46-24 54-66" fill="none" stroke="#ead1bd" stroke-width="13" stroke-linecap="round" opacity=".9" />
+  <path d="M400 257v389" stroke="#d4aa8e" stroke-width="4" opacity=".38" />
+  <path d="M313 674h174" stroke="#fff9f2" stroke-width="2" opacity=".35" />
+</svg>

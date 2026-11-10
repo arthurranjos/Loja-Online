@@ -2,17 +2,17 @@ flowchart TB
   Visitor[Visitante / Cliente]
   Admin[Administrador]
   subgraph App[Aplicação web responsiva — arquitetura lógica em camadas]
-    UI[Apresentação: catálogo, conta, carrinho, painel]
+    UI[React + TypeScript + Vite: catálogo, conta, carrinho, painel]
     UseCases[Aplicação: casos de uso e autorização]
     Domain[Domínio: catálogo, pedido, promoção, avaliação]
-    Adapters[Persistência e integrações]
+    Adapters[Supabase JS + RPC PostgreSQL]
     UI --> UseCases --> Domain --> Adapters
   end
-  DB[(Banco de dados)]
+  DB[(Supabase PostgreSQL + RLS)]
   Pay[Pagamento simulado]
-  Mail[Canal de confirmação/recuperação a decidir]
+  Mail[Supabase Auth + Mailpit local]
   Visitor --> UI
   Admin --> UI
   Adapters --> DB
   Adapters --> Pay
-  Adapters -. "PD-008" .-> Mail
+  Adapters --> Mail
