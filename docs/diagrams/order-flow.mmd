@@ -4,18 +4,19 @@ stateDiagram-v2
   ValidandoEstoque --> SemEstoque: indisponível
   ValidandoEstoque --> Retido: retenção exclusiva obtida
   Retido --> PagamentoAprovado: escolha aprovar e retenção válida
-  Retido --> PagamentoRecusado: escolha recusar
-  Retido --> Expirado: prazo pendente atingido
+  Retido --> PagamentoRecusado: recusa ou aprovação após expiração
+  Retido --> Expirado: 15 minutos
   PagamentoRecusado --> EstoqueLiberado
   Expirado --> EstoqueLiberado
-  PagamentoAprovado --> PedidoRealizado
-  PedidoRealizado --> EmPreparacao
+  PagamentoAprovado --> EmPreparacao
+  Retido --> PedidoRealizado: pedido criado com pagamento pendente
+  PedidoRealizado --> PagamentoAprovado: pagamento aprovado
   EmPreparacao --> Enviado
   Enviado --> Entregue
   PedidoRealizado --> PedidoCancelado: decisão/regra aplicável
   EmPreparacao --> PedidoCancelado: decisão/regra aplicável
   note right of Retido
-    Duração da retenção pendente.
+    Duração: 15 minutos.
     Recusa/expiração libera estoque.
   end note
   note right of PedidoCancelado

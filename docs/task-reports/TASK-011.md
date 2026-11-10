@@ -1,0 +1,9 @@
+# TASK-011 — Solicitações pós-venda
+
+- **Estado:** DONE em 2026-11-09. Migration aplicada e usuário confirmou os fluxos de pós-venda e a consistência do estoque.
+- **Decisões registradas:** cancelamento pré-envio aprovado pelo administrador repõe estoque imediatamente; após envio, usa devolução. Loja paga frete de retorno em arrependimento/devolução e troca. Item devolvido/trocado só volta ao estoque após recebimento e conferência. Arrependimento legal em 7 dias não pode ser recusado discricionariamente; troca voluntária em 30 dias pode ser analisada. Pagamento segue simulado e não há estorno financeiro real; defeitos/garantia continuam fora de PD-009.
+- **Escopo detalhado aprovado:** solicitações de devolução/troca selecionam itens e quantidades específicas. Na troca, o cliente escolhe a variação de tamanho/cor do mesmo produto; sistema verifica estoque ao enviar e novamente ao aprovar/concluir. Cancelamento antes do envio é do pedido inteiro.
+- **Fluxos:** cancelamento aprovado antes do envio libera retenção ou retorna estoque imediatamente; arrependimento inicia processamento sem decisão discricionária e só repõe item após recebimento/conferência; troca é analisada, aprovada com variação disponível e troca estoque da peça antiga pela nova após recebimento/conferência. Ao devolver todas as unidades de todas as linhas por arrependimento, pedido passa a cancelado; devolução parcial preserva pedido.
+- **Financeiro/logística:** loja paga frete de retorno. Pagamento é simulado; não há estorno real ou integração de transporte.
+- **Validação executada:** `npm run build` passou; `npm run lint` passou; `git diff --check` passou.
+- **Validação manual:** usuário confirmou que migration e fluxos funcionaram, incluindo devolução/troca por item e estoque conforme as regras aprovadas.
